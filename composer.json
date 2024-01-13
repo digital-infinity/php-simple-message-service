@@ -1,0 +1,19 @@
+{
+    "name": "digital-infinity/simple-message-service",
+    "description": "A simple message service in PHP.",
+    "require": {
+        "monolog/monolog": "3.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DigitalInfinity\\SimpleMessageService\\": "service/src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Allan Wilson"
+        }
+    ],
+    "minimum-stability": "stable"
+}
