@@ -1,0 +1,33 @@
+{
+    "name": "digital-infinity/simple-message-service",
+    "description": "A simple message service in PHP.",
+    "require": {
+        "monolog/monolog": "3.5",
+        "psr/container": "^2.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleMessageTests\\": "Tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Allan Wilson"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^10"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
