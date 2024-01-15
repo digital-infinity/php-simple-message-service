@@ -1,9 +1,8 @@
 <?php
 
-declare(strict_types= 1);
+declare(strict_types=1);
 
 use Core\Services\ConfigService;
-use phpDocumentor\Reflection\Types\Void_;
 use PHPUnit\Framework\TestCase;
 
 class ConfigServiceTest extends TestCase
@@ -17,36 +16,36 @@ class ConfigServiceTest extends TestCase
 
     /**
      * @covers ConfigService
-     * @dataProvider dataGetEnvConfigValue
+     * @dataProvider dataGetConfigValue
      */
-    public function testGetEnvConfigValue(string $key, string|array|false $expected, string|array|bool|null $default): void
+    public function testGetConfigValue(string $key, string|array|false $expected, string|array|bool|null $default): void
     {
         if (isset($default)) {
-            $actual = $this->configService->getEnvConfigValue($key, $default);
+            $actual = $this->configService->getConfigValue($key, $default);
         } else {
-            $actual = $this->configService->getEnvConfigValue($key);
+            $actual = $this->configService->getConfigValue($key);
         }
 
         $this->assertEquals($expected, $actual);
     }
 
-    public function dataGetEnvConfigValue(): Generator
+    public static function dataGetConfigValue(): Generator
     {
         putenv('TEST1=VALUE');
 
-        yield 'getEnvConfigValue: success' => [
+        yield 'getConfigValue: success' => [
             'key' => 'TEST1',
             'expected' => 'VALUE',
             'default' => null,
         ];
 
-        yield 'getEnvConfigValue: no value found, default provided' => [
+        yield 'getConfigValue: no value found, default provided' => [
             'key' => 'TEST2',
             'expected' => 'DEFAULT',
             'default' => 'DEFAULT',
         ];
 
-        yield 'getEnvConfigValue: no value found, no default provided' => [
+        yield 'getConfigValue: no value found, no default provided' => [
             'key' => 'TEST3',
             'expected' => false,
             'default' => null,

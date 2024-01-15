@@ -1,7 +1,7 @@
 composer:
 	docker run --rm --interactive --tty \
-	--volume $(PWD)/service:/app \
-	--user $(id -u):$(id -g) \
+	--volume $$(pwd)/service:/app \
+	--user $$(id -u):$$(id -g) \
 	composer $(COMMAND) $(ARGUMENTS)
 
 install:
@@ -9,6 +9,4 @@ install:
 
 test:
 	docker compose run --rm --interactive \
-	--volume $(PWD)/service:/app \
-	--user $(id -u):$(id -g) \
-	
+	message-service php ./vendor/bin/phpunit

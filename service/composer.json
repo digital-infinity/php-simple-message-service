@@ -2,13 +2,14 @@
     "name": "digital-infinity/simple-message-service",
     "description": "A simple message service in PHP.",
     "require": {
-        "monolog/monolog": "3.5",
+        "doctrine/mongodb-odm": "^2.6",
+        "monolog/monolog": "^3.5",
         "psr/container": "^2.0"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "Src/"
         }
     },
     "autoload-dev": {
@@ -26,8 +27,9 @@
         "phpunit/phpunit": "^10"
     },
     "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
+        "platform": {
+            "php": "8.3.1",
+            "ext-mongodb": "1.17.2"
         }
     }
 }
